@@ -150,6 +150,5 @@ cython_debug/
 download/
 mlruns/
 outputs/
-preprocess/
-check_data/
-segregate/
+wandb/
+artifacts/
