@@ -151,3 +151,4 @@ download/
 mlruns/
 outputs/
 preprocess/
+check_data/

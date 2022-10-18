@@ -46,7 +46,7 @@ def go(config: DictConfig):
             "main",
             parameters={
                 "input_artifact": "raw_data.parquet:latest",
-                "artifact_name": "clean_data.csv",
+                "artifact_name": "preprocessed_data.csv",
                 "artifact_type": "preprocessed_data",
                 "artifact_description": "Preprocessed data",
             },
@@ -54,8 +54,15 @@ def go(config: DictConfig):
 
     if "check_data" in steps_to_execute:
 
-        ## YOUR CODE HERE: call the check_data step
-        pass
+        _ = mlflow.run(
+            os.path.join(root_path, "check_data"),
+            "main",
+            parameters={
+                "reference_artifact": config["data"]["reference_dataset"],
+                "sample_artifact": "exercise_6/data_test.csv:latest",
+                "ks_alpha": config["data"]["ks_alpha"],
+            },
+        )
 
     if "segregate" in steps_to_execute:
 
