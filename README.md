@@ -14,6 +14,14 @@ Activate the created environment
 conda activate udacity
 ```
 
+## Execute
+
+To execute the pipeline, you just need to run the following:
+
+```
+mlflow run .
+```
+
 ## Troubleshoot
 
 ```
